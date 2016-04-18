@@ -2,10 +2,13 @@
 <html ng-app="kittyApp">
     <head>
         <meta charset="utf-8">
+        <meta name="google-signin-client_id" content="323818134-pevvduacojmnlamtqbmhiukn941m8dp3.apps.googleusercontent.com.apps.googleusercontent.com">
         <title>ktty.</title>
+
         <link rel="stylesheet" href="style/reset.css">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="style/styles.css">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
     </head>
     <body>
 
@@ -14,8 +17,11 @@
             <a class="shop-link" ui-sref="shop">Shop</a>
             <a class="inv-link" ui-sref="inventory">Inventory</a>
           </div>
-          <div class="coins">{{data[id].coins}}</div>
+
+          <div class="coins">{{user[1].coins}}</div>
           <img class="coins-img" src="img/coins.png" alt="coins" />
+
+          <div class="g-signin2" data-onsuccess="onSignIn"></div>
       </header>
 
         <div class="stats">
@@ -52,7 +58,7 @@
 
         <!-- SCRIPTS -->
         <!-- AngularJS -->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
 
 <!-- Firebase -->
 <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>

@@ -3,27 +3,24 @@ angular.module('kittyApp')
 
 
     //Gets all the users in the firebase suervice
-    var stuff = fbService.getAllUsers();
+    $scope.user = fbService.getAllUsers();
+    $scope.shop = fbService.getShop();
 
-    $scope.id = "-KFeasI5hiTYyx6RsD7e";
+
+    $scope.id = 1;
 
     //Binds the data (stuff) to the scope with three-way binding under $scope.data
     //Any changes made to the $scope.data will automagically sync
-    stuff.$bindTo($scope, 'data').then(function(){
+    // stuff.$bindTo($scope, 'data');
 
-        console.log('This is done');
-
-
-    });
-
-console.log('test');
+// console.log($scope.stuff[1]);
 
 $scope.addCoins = function (numCoins) {
-  var currentCoins = parseInt($scope.data[$scope.id].coins);
+  var currentCoins = parseInt($scope.user[$scope.id].coins);
   console.log(currentCoins);
-  $scope.data[$scope.id].coins = currentCoins + numCoins; //test 3 way binding?wait
-  console.log($scope.data[$scope.id].coins);
-  $scope.data.$save();
+  $scope.user[$scope.id].coins = currentCoins + numCoins; //test 3 way binding?wait
+  console.log($scope.user[$scope.id].coins);
+  $scope.user.$save($scope.id);
 };
 
 
@@ -35,13 +32,4 @@ $scope.addCoins = function (numCoins) {
   //   console.log("Authentication failed:", error);
   // });
 
-
-    // $scope.addCoins = function(coinsNum) {
-    //   $scope.data.user[0].coins += coinsNum;
-    //   $scope.data.user.$save(0);
-    // };
-    //
-    // $scope.addCoins(300);
-
-    // i just started adding firebase so its a mess
   });

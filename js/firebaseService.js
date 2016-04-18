@@ -4,8 +4,12 @@ angular.module('kittyApp')
                                    //Firebase Array you have to update each record individually
 
     this.getAllUsers = function(){
-        var ref = new Firebase(fb.url + '/user');
-        return $firebaseObject(ref);
+        var userRef = new Firebase(fb.url + '/user');
+        return $firebaseArray(userRef);
     };
 
+    this.getShop = function(){
+        var shopRef = new Firebase(fb.url + '/shop');
+        return $firebaseArray(shopRef);
+    };
 });
