@@ -1,4 +1,95 @@
-#scene li img{
-  width: 200px;
-  height: 200px;
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #e3f8ff;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.header {
+  background: #ffffff;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  box-shadow: 0 1px 5px grey;
+}
+
+.logotext  {
+  left: 0;
+  margin-top: 5px;
+}
+
+.nav {
+display: flex;
+flex: auto;
+justify-content: left;
+margin: 0 60px;
+}
+
+.nav a{
+  /*display: inline-block;*/
+  text-decoration: none;
+  margin-top: 10px;
+  color: grey;
+  font-size: 20px;
+  font-weight: 300;
+  padding-right: 60px;
+  text-align: center;
+}
+
+.stats  {
+  color: #242424;
+  background: #333333;
+  width: 220px;
+  border-radius: 20px;
+  box-shadow: 0 1px 5px grey;
+  display: inline-block;
+  position: absolute;
+  margin: 450px -105px;
+}
+
+img {
+  width: 80%;
+  height: 80%;
+}
+
+.stats h1 {
+  margin: 0px auto;
+  font-weight: 300;
+  font-size: 26px;
+  color: #fff;
+  /*margin-bottom: -10px;*/
+}
+
+.progress-bar  {
+  margin-bottom: 10px;
+}
+
+#scene {
+  display: inline-block;
+}
+
+.ui-view  {
+  position: fixed;
+  left: 10px;
+  top: 50px;
+}
+
+.shop {
+  background: #fff;
+  width: 400px;
+  height: 500px;
+  /*box-shadow: 0 1px 5px grey;*/
+}
+
+.coins {
+  margin-top: -30px;
+}
+
+.coins-img{
+  margin-top: -10px;
+  height: 64px;
+  width: 64px;
 }

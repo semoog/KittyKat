@@ -1,58 +1,47 @@
-var app = angular.module('semoapp', ['ui.router']);
+var app = angular.module('kittyApp', ['ui.router', 'firebase']);
 
-var randomWidth = 10000;
-var timer = setInterval(toggleEyelids, 1000);
-var catState = {};
-
-function blink() {
-  if(catState.blinking) {
-    return;
-  }
-
-  catState.blinking = true;
-  $('#eyelids').show();
-
-  setTimeout(function () {
-    catState.blinking = false;
-    $('#eyelids').hide();
-  }, 200);
-}
-function toggleEyelids() {
-    blink();
-    clearInterval(timer);
-    timer = setInterval(toggleEyelids, parseInt(Math.random() * randomWidth + 3000));
-}
-
-app.directive('imgSlider', function() {
-
-    return {
-        templateUrl: '/templates/img-slider.html',
-        restrict: 'E',
-        link: function(scope, element, attrs) {
-
-            scope.images = ['A', 'B', 'C'];
-
-            scope.indexShown = 0;
-
-            scope.indexShownMinus = function() {
-                if (scope.indexShown === 0) {
-                    scope.indexShown = scope.images.length - 1;
-                } else {
-                    scope.indexShown--;
-                }
-            };
-
-            scope.indexShownPlus = function() {
-
-                if (scope.indexShown === (scope.images.length - 1)) {
-                    scope.indexShown = 0;
-                } else {
-                    scope.indexShown++;
-                }
-            };
-
-
-        }
-
-    };
+app.constant('fb', {
+      url: 'https://kittygachi.firebaseio.com/'
 });
+
+// var ref = new Firebase("https://kittygachi.firebaseio.com");
+
+
+
+var hunger = document.getElementById("hunger");
+var happiness = document.getElementById("happiness");
+
+app.run(function($rootScope, $firebaseArray) {
+
+    setInterval(function () {
+      hunger.value += -1;
+    }, 5000);
+
+    setInterval(function () {
+      happiness.value += -1;
+    }, 3000);
+});
+
+app.config(function($stateProvider, $urlRouterProvider) {
+
+    $stateProvider
+        .state('home', {
+            url: '/home',
+            templateUrl: 'templates/home.html',
+
+        })
+        .state('shop', {
+            url: '/shop',
+            templateUrl: 'templates/shop.html',
+            // controller: 'shopController'
+        })
+        .state('inventory', {
+            url: '/inventory',
+            templateUrl: 'templates/inventory.html',
+            // controller: 'inventoryController'
+        });
+
+
+    $urlRouterProvider.otherwise('/home');
+
+  });

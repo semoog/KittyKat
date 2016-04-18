@@ -1,28 +1,44 @@
 <!DOCTYPE html>
-<html ng-app="semoapp">
+<html ng-app="kittyApp">
     <head>
         <meta charset="utf-8">
-        <title>semo.</title>
-        <!-- <link rel="stylesheet" href="style/reset.css"> -->
+        <title>ktty.</title>
+        <link rel="stylesheet" href="style/reset.css">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-        <!-- <link rel="stylesheet" href="style/styles.css"> -->
+        <link rel="stylesheet" href="style/styles.css">
     </head>
     <body>
 
-        <header class="header"></header>
+      <header class="header" ng-controller="masterController">
+          <div class="nav">
+            <a class="shop-link" ui-sref="shop">Shop</a>
+            <a class="inv-link" ui-sref="inventory">Inventory</a>
+          </div>
+          <div class="coins">{{data[id].coins}}</div>
+          <img class="coins-img" src="img/coins.png" alt="coins" />
+      </header>
 
-        <!-- <div class="kitty"> -->
-        <ul id="scene">
-            <li class="layer" data-depth="1.00"><img style="opacity: 0;" src="img/layer1.png"/></div></li>
-            <li class="layer" data-depth="0"><img src="img/cat_back.png"></li>
-            <li class="layer" data-depth="0.1"><img src="img/cat_eyes.png"></li>
-            <li class="layer" data-depth="0"><img src="img/cat_base.png"></li>
-            <li class="layer" id="eyelids" data-depth="0"><img src="img/cat_eyelids.png"></li>
-            <li class="layer" data-depth="0"><img src="img/cat_eyelashes.png"></li>
-        </ul>
-        <!-- </div> -->
+        <div class="stats">
+          <h1>Hunger</h1>
+          <progress class="progress-bar" id="hunger" value="100" max="100"></progress>
+          <h1>Happiness</h1>
+          <progress class="progress-bar" id="happiness" value="100" max="100"></progress>
+        </div>
 
-        <img-slider></img-slider>
+
+        <div class="kitty clearfix">
+          <ul id="scene">
+            <div style="width: 380px">
+
+            </div>
+              <li class="layer" data-depth="1"><img style="opacity: 0;" src="img/layer1.png"/></li>
+              <li class="layer" data-depth="0"><img src="img/cat_back.png"></li>
+              <li class="layer" data-depth="0.1"><img src="img/cat_eyes.png"></li>
+              <li class="layer" data-depth="0"><img src="img/cat_base.png"></li>
+              <li class="layer" id="eyelids" data-depth="0"><img src="img/cat_eyelids.png"></li>
+              <li class="layer" data-depth="0"><img src="img/cat_eyelashes.png"></li>
+          </ul>
+        </div>
 
         <!-- UI-VIEW -->
 
@@ -35,19 +51,29 @@
         <div class="footer"></div>
 
         <!-- SCRIPTS -->
+        <!-- AngularJS -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+
+<!-- Firebase -->
+<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
 
         <!-- JQUERY -->
         <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/ui/1.12.0-rc.1/jquery-ui.js" integrity="sha256-IY2gCpIs4xnQTJzCIPlL3uUgSOwVQYD9M8t208V+7KA=" crossorigin="anonymous"></script>
-        <!-- ANGULARJS -->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js" charset="utf-8"></script>
         <!-- UI-ROUTER -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js" charset="utf-8"></script>
         <!-- LOCAL -->
         <script src="js/requestAnimationFrame.js"></script>
         <script src="js/jquery.parallax.js"></script>
         <script src="js/parallax.js"></script>
+        <script src="js/animation.js" charset="utf-8"></script>
         <script src="js/app.js"></script>
+        <script src="js/masterController.js"></script>
+        <script src="js/firebaseService.js" charset="utf-8"></script>
+
         <script>
 
             var scene = document.getElementById('scene');
