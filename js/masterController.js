@@ -16,17 +16,30 @@ angular.module('kittyApp')
 
         var shopRef = fbRef.child("shop");
 
-
-        fbRef.authWithOAuthPopup("google", function(error, authData) {
-            if (error) {
-                console.log("Login Failed!", error);
-            } else {
-                console.log("Authenticated successfully with payload:", authData);
-            }
-        });
+        $scope.gitHubLogin = function() {
+            fbRef.authWithOAuthPopup("github", function(error, authData) {
+                if (error) {
+                    console.log("Login Failed!", error);
+                } else {
+                    console.log("Authenticated successfully with payload:", authData);
+                    $rootScope.gitHubUid = authData.auth.uid;
+                    $(".loader").fadeOut("slow");
+                    $rootScope.createUser($rootScope.gitHubUid);
+                }
+            });
+        };
 
 
         $rootScope.id = 0;
+
+        $rootScope.createUser = function(uid) {
+
+            fbRef.child("user").child(uid).set({
+                coins: 0,
+                inventory: ['null'],
+                uid: uid
+            });
+        };
 
         $rootScope.addShopItem = function() {
 

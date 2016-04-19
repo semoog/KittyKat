@@ -11,7 +11,7 @@ app.constant('fb', {
 var hunger = document.getElementById("hunger");
 var happiness = document.getElementById("happiness");
 
-app.run(['$rootScope', function($root, $firebaseArray) {
+app.run(['$rootScope', function($root, $rootScope, $firebaseArray) {
 
   $root.$on('$routeChangeStart', function(e, curr, prev) {
     if (curr.$$route && curr.$$route.resolve) {

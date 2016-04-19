@@ -12,6 +12,17 @@
     </head>
     <body>
 
+        <div class="loader" ng-controller="masterController">
+            <!-- <ul id="loading">
+                <li ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]"></li>
+            </ul> -->
+            <h1 class="load-title">Ktty.</h1>
+            <img class="pageloader-img" src="img/page-loader-bw.gif" alt="" />
+            <div class="login" ng-click="gitHubLogin()">
+              <img class="github-img" src="img/githublogin.png" alt="Sign in with Github" />
+            </div>
+        </div>
+
         <header class="header" ng-controller="masterController">
             <div class="nav">
                 <a class="shop-link" ui-sref="shop">Shop</a>
@@ -21,15 +32,8 @@
             <div class="coins">{{user[0].coins}}</div>
             <img class="coins-img" src="img/coins.png" alt="coins"/>
 
-            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <!-- <div class="github" ng-click="gitHubLogin()"><img src="https://cdn2.iconfinder.com/data/icons/social-aquiocons/512/Aquicon-Github.png" alt="Sign in with Github" /></div> -->
         </header>
-
-        <div class="loader">
-            <!-- <ul id="loading">
-                <li ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]"></li>
-            </ul> -->
-            <img src="img/page-loader-bw.gif" alt="" />
-        </div>
 
         <div class="stats">
             <h1>Hunger</h1>
