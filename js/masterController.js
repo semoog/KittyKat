@@ -4,17 +4,26 @@ angular.module('kittyApp')
 
         //Gets all the users in the firebase service
         fbService.getAllUsers().then(function(response) {
-          $rootScope.user = response;
-          $rootScope.currentCoins = parseInt($rootScope.user[$rootScope.id].coins);
+            $rootScope.user = response;
+            $rootScope.currentCoins = parseInt($rootScope.user[$rootScope.id].coins);
         });
 
         fbService.getShop().then(function(response) {
-          $rootScope.shop = response;
+            $rootScope.shop = response;
         });
 
         var fbRef = new Firebase(fb.url);
 
         var shopRef = fbRef.child("shop");
+
+
+        fbRef.authWithOAuthPopup("google", function(error, authData) {
+            if (error) {
+                console.log("Login Failed!", error);
+            } else {
+                console.log("Authenticated successfully with payload:", authData);
+            }
+        });
 
 
         $rootScope.id = 0;
@@ -32,7 +41,7 @@ angular.module('kittyApp')
 
         $rootScope.addCoins = function(numCoins) {
             // if ($rootScope.user[$rootScope.id] && !$rootScope.currentCoins) {
-                $rootScope.currentCoins = parseInt($rootScope.user[$rootScope.id].coins);
+            $rootScope.currentCoins = parseInt($rootScope.user[$rootScope.id].coins);
             // }
             $rootScope.user[$rootScope.id].coins = $rootScope.currentCoins + numCoins; //test 3 way binding?wait
             $rootScope.user.$save($rootScope.id);
@@ -40,7 +49,7 @@ angular.module('kittyApp')
 
         $rootScope.removeCoins = function(numCoins) {
             // if ($rootScope.user[$rootScope.id] && !$rootScope.currentCoins) {
-                $rootScope.currentCoins = parseInt($rootScope.user[$rootScope.id].coins);
+            $rootScope.currentCoins = parseInt($rootScope.user[$rootScope.id].coins);
             // }
 
             $rootScope.user[$rootScope.id].coins = $rootScope.currentCoins - numCoins; //test 3 way binding?wait
