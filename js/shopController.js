@@ -1,18 +1,18 @@
 angular.module('kittyApp')
   .controller('shopController', function ($scope, $rootScope, $firebaseArray, fbService, users, shop) {
 
+// if($rootScope.currentCoins) {
+//   $rootScope.currentCoins = parseInt($rootScope.user[$rootScope.id].coins);
+// }
 
-    $scope.users = users;
-    $scope.shop = shop;
-    console.log($scope.users);
 
-    $scope.id = 0;
+//do we even need this? it should see rootscope no?
+// but why is it only applying class on click
 
-    console.log("test", $scope.users[0]);
-
-    setTimeout(function () {
-      $scope.currentCoins = parseInt($scope.users[$scope.id].coins);
-    }, 1500);
+$scope.buyItem = function(coins) {
+  console.log("I Wonder", $rootScope.currentCoins);
+  console.log("coins", coins);
+};
 
 
   });

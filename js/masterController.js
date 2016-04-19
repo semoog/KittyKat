@@ -3,37 +3,53 @@ angular.module('kittyApp')
 
 
         //Gets all the users in the firebase service
-        $scope.user = fbService.getAllUsers();
-        // $scope.shop = fbService.getShop();
+        $rootScope.user = fbService.getAllUsers();
+        $rootScope.shop = fbService.getShop();
 
+        console.log("RootScope User?", $rootScope.user);
         var fbRef = new Firebase(fb.url);
 
         var shopRef = fbRef.child("shop");
 
 
-        $scope.id = 0;
+        $rootScope.id = 0;
 
-        $scope.addCoins = function(numCoins) {
-            var currentCoins = parseInt($scope.user[$scope.id].coins);
-            $scope.user[$scope.id].coins = currentCoins + numCoins; //test 3 way binding?wait
-            $scope.user.$save($scope.id);
+        // The hackiest solution I can think of
+        setTimeout(function() {
+            if ($rootScope.user[$rootScope.id]) {
+                $rootScope.currentCoins = parseInt($rootScope.user[$rootScope.id].coins);
+            }
+            $scope.$apply();
+        }, 5000);
+
+
+
+        $rootScope.addCoins = function(numCoins) {
+            if ($rootScope.user[$rootScope.id] && !$rootScope.currentCoins) {
+                $rootScope.currentCoins = parseInt($rootScope.user[$rootScope.id].coins);
+            }
+            $rootScope.user[$rootScope.id].coins = $rootScope.currentCoins + numCoins; //test 3 way binding?wait
+            $rootScope.user.$save($rootScope.id);
         };
 
-        $scope.addShopItem = function() {
+        $rootScope.addShopItem = function() {
 
-            fbRef.child("shop").child("catnip").set({
-                    name: 'Catnip',
-                    price: 800,
-                    type: 'toy',
-                    img: 'http://cdn.shopify.com/s/files/1/0657/0831/products/Green-Sm-PillBottle650_1024x1024.png?v=1450461845',
-                    increase: 100
+            fbRef.child("shop").child("laserpointer").set({
+                name: 'Laser Pointer',
+                price: 1000,
+                type: 'toy',
+                img: 'https://www.iconexperience.com/_img/g_collection_png/standard/512x512/laser_pointer.png',
+                increase: 75
             });
         };
 
-        $scope.removeCoins = function(numCoins) {
-            var currentCoins = parseInt($scope.user[$scope.id].coins);
-            $scope.user[$scope.id].coins = currentCoins - numCoins; //test 3 way binding?wait
-            $scope.user.$save($scope.id);
+        $rootScope.removeCoins = function(numCoins) {
+            if ($rootScope.user[$rootScope.id] && !$rootScope.currentCoins) {
+                $rootScope.currentCoins = parseInt($rootScope.user[$rootScope.id].coins);
+            }
+
+            $rootScope.user[$rootScope.id].coins = $rootScope.currentCoins - numCoins; //test 3 way binding?wait
+            $rootScope.user.$save($rootScope.id);
         };
 
 

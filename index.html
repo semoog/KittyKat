@@ -24,6 +24,16 @@
             <div class="g-signin2" data-onsuccess="onSignIn"></div>
         </header>
 
+        <div class="modal" ng-show="loadingView">
+            <!-- loadingView is a variable defined in the $rootScope -->
+
+            <!-- The loading animation is inspired by
+    http://codepen.io/joni/details/FiKsd -->
+            <ul id="loading">
+                <li ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]"></li>
+            </ul>
+        </div>
+
         <div class="stats">
             <h1>Hunger</h1>
             <progress class="progress-bar" id="hunger" value="100" max="100"></progress>
