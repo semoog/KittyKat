@@ -2,6 +2,10 @@ var randomWidth = 10000;
 var timer = setInterval(toggleEyelids, 1000);
 var catState = {};
 
+$(window).load(function() {
+	$(".loader").fadeOut("slow");
+})
+
 function blink() {
   if(catState.blinking) {
     return;
@@ -21,23 +25,28 @@ function toggleEyelids() {
     timer = setInterval(toggleEyelids, parseInt(Math.random() * randomWidth + 3000));
 }
 
-// $('.ui-view').hide();
+$('.ui-view').hide();
 
 var view = false;
 
 $('.shop-link').click(function () {
-  if (!view) {
-    $('.ui-view').toggle( "slide", {direction: "left" }, 1000 );
-  }
-  view = !view;
+  // if (view) {
+  //   return;
+  // }
+  // else{
+    $('.ui-view').toggle( "slide", {direction: "up" }, 600 );
+    // view = !view;
+  // }
 });
 
 $('.inv-link').click(function () {
-  if (!view) {
-    $('.ui-view').toggle( "slide", {direction: "left" }, 1000 );
-  }
-
-  view = !view;
+  // if (view) {
+  //   return;
+  // }
+  // else{
+    $('.ui-view').toggle( "slide", {direction: "up" }, 600 );
+    // view = !view;
+  // }
 });
 
 // $('.kitty').mouseenter(function() {

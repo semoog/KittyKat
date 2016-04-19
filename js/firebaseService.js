@@ -1,13 +1,31 @@
 angular.module('kittyApp')
-.service("fbService", function($firebaseArray, $firebaseObject, fb){                             
+.service("fbService", function($firebaseArray, $firebaseObject, fb, $q){
 
     this.getAllUsers = function(){
         var userRef = new Firebase(fb.url + '/user');
-        return $firebaseArray(userRef);
+
+        var doSomethingLater = $q.defer();
+
+        $firebaseArray(userRef).$loaded().then(function(response) {
+          console.log("response", response);
+          doSomethingLater.resolve(response);
+        });
+
+        return doSomethingLater.promise;
     };
 
     this.getShop = function(){
         var shopRef = new Firebase(fb.url + '/shop');
-        return $firebaseArray(shopRef);
-    };
+
+
+        var doSomethingLater = $q.defer();
+
+        $firebaseArray(shopRef).$loaded().then(function(response) {
+          console.log("response", response);
+          doSomethingLater.resolve(response);
+        });
+
+        return doSomethingLater.promise;
+
+            };
 });

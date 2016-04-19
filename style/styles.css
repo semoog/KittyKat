@@ -1,6 +1,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
-  background: #e3f8ff;
+  background: #252525;
+  /*background: #66CEFF;*/
   text-align: center;
   margin-top: 100px;
 }
@@ -32,7 +33,7 @@ body {
 display: flex;
 flex: auto;
 justify-content: left;
-margin: 0 60px;
+margin: 0 120px;
 }
 
 .nav a{
@@ -47,7 +48,7 @@ margin: 0 60px;
 }
 
 .stats  {
-  color: #242424;
+  color: #252525;
   background: #333333;
   width: 220px;
   border-radius: 20px;
@@ -88,10 +89,11 @@ img {
 
 .shop {
   background: #fff;
-  margin-top: 100px;
+  margin-top: 0px;
+  margin-left: 50px;
   width: 320px;
   height: 320px;
-  border-radius: 20px;
+  border-radius: 0px 0px 20px 20px;
   /*box-shadow: 0 1px 5px #7b7a7b;*/
   /*overflow-y: scroll;*/
   display: flex;
@@ -177,7 +179,7 @@ img {
   width: 64px;
 }
 
-.modal {
+.loader {
   height: 100%;
   width: 100%;
   background-color: #fff;
@@ -185,5 +187,12 @@ img {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 999;
+  background: #252525;
+}
+
+.loader img {
+  margin-top: 250px;
+  width: 25%;
+  height: 25%;
 }

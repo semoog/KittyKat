@@ -3,34 +3,21 @@ angular.module('kittyApp')
 
 
         //Gets all the users in the firebase service
-        $rootScope.user = fbService.getAllUsers();
-        $rootScope.shop = fbService.getShop();
+        fbService.getAllUsers().then(function(response) {
+          $rootScope.user = response;
+          $rootScope.currentCoins = parseInt($rootScope.user[$rootScope.id].coins);
+        });
 
-        console.log("RootScope User?", $rootScope.user);
+        fbService.getShop().then(function(response) {
+          $rootScope.shop = response;
+        });
+
         var fbRef = new Firebase(fb.url);
 
         var shopRef = fbRef.child("shop");
 
 
         $rootScope.id = 0;
-
-        // The hackiest solution I can think of
-        setTimeout(function() {
-            if ($rootScope.user[$rootScope.id]) {
-                $rootScope.currentCoins = parseInt($rootScope.user[$rootScope.id].coins);
-            }
-            $scope.$apply();
-        }, 5000);
-
-
-
-        $rootScope.addCoins = function(numCoins) {
-            if ($rootScope.user[$rootScope.id] && !$rootScope.currentCoins) {
-                $rootScope.currentCoins = parseInt($rootScope.user[$rootScope.id].coins);
-            }
-            $rootScope.user[$rootScope.id].coins = $rootScope.currentCoins + numCoins; //test 3 way binding?wait
-            $rootScope.user.$save($rootScope.id);
-        };
 
         $rootScope.addShopItem = function() {
 
@@ -43,10 +30,18 @@ angular.module('kittyApp')
             });
         };
 
-        $rootScope.removeCoins = function(numCoins) {
-            if ($rootScope.user[$rootScope.id] && !$rootScope.currentCoins) {
+        $rootScope.addCoins = function(numCoins) {
+            // if ($rootScope.user[$rootScope.id] && !$rootScope.currentCoins) {
                 $rootScope.currentCoins = parseInt($rootScope.user[$rootScope.id].coins);
-            }
+            // }
+            $rootScope.user[$rootScope.id].coins = $rootScope.currentCoins + numCoins; //test 3 way binding?wait
+            $rootScope.user.$save($rootScope.id);
+        };
+
+        $rootScope.removeCoins = function(numCoins) {
+            // if ($rootScope.user[$rootScope.id] && !$rootScope.currentCoins) {
+                $rootScope.currentCoins = parseInt($rootScope.user[$rootScope.id].coins);
+            // }
 
             $rootScope.user[$rootScope.id].coins = $rootScope.currentCoins - numCoins; //test 3 way binding?wait
             $rootScope.user.$save($rootScope.id);

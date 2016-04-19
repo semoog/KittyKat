@@ -1,5 +1,5 @@
 angular.module('kittyApp')
-  .controller('shopController', function ($scope, $rootScope, $firebaseArray, fbService, users, shop) {
+  .controller('shopController', function ($scope, $rootScope, $firebaseArray, users, shop) {
 
 // if($rootScope.currentCoins) {
 //   $rootScope.currentCoins = parseInt($rootScope.user[$rootScope.id].coins);

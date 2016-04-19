@@ -11,7 +11,7 @@ app.constant('fb', {
 var hunger = document.getElementById("hunger");
 var happiness = document.getElementById("happiness");
 
-app.run(function($rootScope, $firebaseArray, $root) {
+app.run(['$rootScope', function($root, $firebaseArray) {
 
   $root.$on('$routeChangeStart', function(e, curr, prev) {
     if (curr.$$route && curr.$$route.resolve) {
@@ -31,7 +31,7 @@ app.run(function($rootScope, $firebaseArray, $root) {
     setInterval(function () {
       happiness.value += -1;
     }, 3000);
-});
+}]);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
