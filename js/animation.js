@@ -21,16 +21,25 @@ function toggleEyelids() {
     timer = setInterval(toggleEyelids, parseInt(Math.random() * randomWidth + 3000));
 }
 
-$('.ui-view').hide();
+// $('.ui-view').hide();
+
+var view = false;
 
 $('.shop-link').click(function () {
-  $('.ui-view').slideDown('fast');
+  if (!view) {
+    $('.ui-view').toggle( "slide", {direction: "left" }, 1000 );
+  }
+  view = !view;
 });
 
 $('.inv-link').click(function () {
-  $('.ui-view').slideDown('fast');
+  if (!view) {
+    $('.ui-view').toggle( "slide", {direction: "left" }, 1000 );
+  }
+
+  view = !view;
 });
 
-$('.kitty').mouseenter(function() {
-  $('.ui-view').hide();
-});
+// $('.kitty').mouseenter(function() {
+//   $('.ui-view').hide();
+// });

@@ -84,13 +84,69 @@ img {
   top: 50px;
 }
 
+/*SHOP*/
+
 .shop {
   background: #fff;
+  margin-top: 100px;
   width: 400px;
-  height: 500px;
+  height: 300px;
   border-radius: 20px;
-  /*box-shadow: 0 1px 5px grey;*/
+  /*box-shadow: 0 1px 5px #7b7a7b;*/
 }
+
+.item-box {
+  width: 100px;
+  margin-top: 10px;
+  margin-left: 10px;
+  display: inline-block;
+  /*text-align: left !important;*/
+  border: 3px solid #7b7a7b;
+  border-radius: 20px;
+  background-color: #ccdfe5;
+  position: relative;
+}
+
+.insufficient-funds {
+  border: 3px solid #7b7a7b;
+  display: inline-block;
+  background-color: #ccdfe5;
+}
+.insufficient-funds > img {
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+}
+.insufficient-funds > .price {
+  color: #fe6e33;
+}
+
+.price {
+  position: absolute;
+  top: 8px;
+  line-height: 25px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: "Open Sans";
+  left: 0;
+  width: 40%;
+  text-align: center;
+  background-color: #343334;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  color: #fed333;
+}
+
+.coin {
+  width: 6px;
+  height: 6px;
+  display: inline-block;
+  background-color: #fcd335;
+  border-radius: 100%;
+  margin-right: 4px;
+  border: 2px solid #fdc905;
+}
+
+/*COINS HEADER*/
 
 .coins {
   margin-top: -30px;
