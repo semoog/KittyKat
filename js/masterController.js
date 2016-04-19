@@ -11,7 +11,7 @@ angular.module('kittyApp')
         var shopRef = fbRef.child("shop");
 
 
-        $scope.id = 1;
+        $scope.id = 0;
 
         $scope.addCoins = function(numCoins) {
             var currentCoins = parseInt($scope.user[$scope.id].coins);
@@ -21,15 +21,12 @@ angular.module('kittyApp')
 
         $scope.addShopItem = function() {
 
-            fbRef.child("shop").set({
-                yarn: {
-                    name: 'Yarn',
-                    price: 200,
+            fbRef.child("shop").child("catnip").set({
+                    name: 'Catnip',
+                    price: 800,
                     type: 'toy',
-                    img: 'http://vignette1.wikia.nocookie.net/farmville2/images/a/aa/Super-Fine_Yarn_Ball.png/revision/latest?cb=20130220230859',
-                    increase: 50
-                }
-
+                    img: 'http://cdn.shopify.com/s/files/1/0657/0831/products/Green-Sm-PillBottle650_1024x1024.png?v=1450461845',
+                    increase: 100
             });
         };
 

@@ -33,7 +33,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('shop', {
             url: '/shop',
             templateUrl: 'templates/shop.html',
-            controller: 'shopController'
+            controller: 'shopController',
+            resolve: {
+              users: function(fbService) {
+                  return fbService.getAllUsers();
+              },
+              shop: function(fbService) {
+                  return fbService.getShop();
+              }
+            }
         })
         .state('inventory', {
             url: '/inventory',

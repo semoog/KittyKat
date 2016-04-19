@@ -1,9 +1,10 @@
 <div class="shop">
   <div class="items" ng-repeat="item in shop">
-    {{item.name}}
-    <div class="item-box" ng-click="">
-    <img src="http://vignette1.wikia.nocookie.net/farmville2/images/a/aa/Super-Fine_Yarn_Ball.png/revision/latest?cb=20130220230859" alt="{item.name}}"/>
-    <div class="price">{{item.price}}</div>
+    <div class="item-box" ng-class="{'insufficient-funds': '{{item.price > currentCoins}}'}" ng-click="buyItem()">
+      <img ng-src="{{item.img}}" />
+      <div class="price"><div class="coin"></div>{{item.price}}</div>
+      <div class="item-text">{{item.name}}</div>
+    </div>
   </div>
 </div>
 
@@ -15,5 +16,5 @@
 <div class="item-box" ng-click="buyItem()">
   <img src="http://vignette1.wikia.nocookie.net/farmville2/images/a/aa/Super-Fine_Yarn_Ball.png/revision/latest?cb=20130220230859" />
   <div class="price"><div class="coin"></div>{{item.price}}</div>
-</div> -->
 </div>
+</div> -->
