@@ -4,6 +4,7 @@ body {
   /*background: #66CEFF;*/
   text-align: center;
   margin-top: 100px;
+  overflow: hidden;
 }
 
 .header {
@@ -14,7 +15,7 @@ body {
   top: 0;
   left: 0;
   z-index: 1;
-  box-shadow: 0 1px 5px grey;
+  box-shadow: 0 2px 1px #000;
 }
 
 .logotext  {
@@ -45,10 +46,10 @@ margin: 0 120px;
   background: #333333;
   width: 220px;
   border-radius: 20px;
-  box-shadow: 0 1px 5px grey;
+  box-shadow: 0 2px 1px #000;
   display: inline-block;
   position: absolute;
-  margin: 450px -105px;
+  margin: 430px -110px;
 }
 
 img {
@@ -70,6 +71,7 @@ img {
 
 #scene {
   display: inline-block;
+  margin-top: -50px;
 }
 
 .ui-view  {
@@ -148,6 +150,12 @@ img {
   border: 2px solid #fdc905;
 }
 
+#coin_count  {
+  margin-top: -17px;
+  position: fixed;
+  right: 45px;
+}
+
 .item-text {
   font-family: "Open Sans";
   font-size: 13px;
@@ -164,7 +172,7 @@ img {
 
 .coins {
   margin-top: -23px;
-  right: 100px;
+  right: 70px;
   position: fixed;
   color: white;
 }
@@ -190,12 +198,22 @@ img {
   background: #252525;
 }
 
+.loadwrapper  {
+  /*background: #aeaeae;*/
+  /*border: 1px solid #aeaeae;*/
+  border-radius: 20px;
+  width: 300px;
+  height: 500px;
+  margin: 60px auto;
+  /*box-shadow: 0 2px 1px grey;*/
+}
+
 .load-title {
   color: #fff;
   display: inline-block;
-  position: absolute;
+  position: fixed;
   margin-top: 150px;
-  left: -100px;
+  margin: 115px;
   z-index: 9999;
   /*margin: 0 auto;*/
 }
@@ -207,7 +225,7 @@ img {
 }
 
 .githublogin  {
-  width: 50%;
+  /*width: 50%;*/
   margin: 0 auto;
   margin-top: -10px;
   /*z-index: 9999;*/
@@ -215,10 +233,12 @@ img {
 
 .github-img  {
   width: 250px;
+  box-shadow: 0 2px 1px grey;
+
 }
 
 .googlelogin  {
-  width: 50%;
+  /*width: 50%;*/
   margin: 0 auto;
   margin-top: 10px;
   /*z-index: 9999;*/
@@ -226,6 +246,8 @@ img {
 
 .google-img  {
   width: 250px;
+  box-shadow: 0 2px 1px grey;
+
 }
 
 .userloggedin  {
@@ -236,8 +258,8 @@ img {
   top: 50px;
   right: 20px;
   z-index: 1;
-  box-shadow: 0 1px 5px grey;
-  border-radius: 0px 0px 20px 20px;
+  /*box-shadow: 0 1px 5px grey;*/
+  border-radius: 0px 0px 0px 20px;
 }
 
 .profile-img  {

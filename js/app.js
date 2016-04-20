@@ -13,6 +13,9 @@ var happiness = document.getElementById("happiness");
 
 app.run(['$rootScope', function($root, $rootScope, $firebaseArray) {
 
+  $('.loginbuttons').hide();
+  $('.load-title').hide();
+
   $root.$on('$routeChangeStart', function(e, curr, prev) {
     if (curr.$$route && curr.$$route.resolve) {
       // Show a loading message until promises aren't resolved

@@ -6,6 +6,36 @@ var catState = {};
 
 // $('.pageloader-img').slideDown(600);
 
+$('.github-img').hover(function() {
+  $('.github-img').css({
+    'box-shadow': 'none',
+    'margin-top': '1px'
+  });
+  $('.google-img').css({
+    'margin-top': '-1px'
+  });
+}, function() {
+  $('.github-img').css({
+    'box-shadow': '0 2px 1px grey',
+    'margin-top': '0'
+  });
+  $('.google-img').css({
+    'margin-top': '0px'
+  });
+});
+
+$('.google-img').hover(function() {
+  $('.google-img').css({
+    'box-shadow': 'none',
+    'margin-top': '1px'
+  });
+}, function() {
+  $('.google-img').css({
+    'box-shadow': '0 2px 1px grey',
+    'margin-top': '0'
+  });
+});
+
 function blink() {
     if (catState.blinking) {
         return;
@@ -37,7 +67,7 @@ $('.shop-link').click(function() {
     // else{
     $('.ui-view').toggle("slide", {
         direction: "up"
-    }, 600);
+    }, 300);
     // view = !view;
     // }
 });
@@ -49,7 +79,7 @@ $('.inv-link').click(function() {
     // else{
     $('.ui-view').toggle("slide", {
         direction: "up"
-    }, 600);
+    }, 300);
     // view = !view;
     // }
 });

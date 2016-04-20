@@ -12,20 +12,25 @@
     </head>
     <body ng-controller="masterController">
 
-      <!-- LOADER -->
+        <!-- LOADER -->
 
         <div class="loader">
             <!-- <ul id="loading">
                 <li ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]"></li>
             </ul> -->
+            <div class="loadwrapper">
             <h1 class="load-title">Ktty.</h1>
-            <img class="pageloader-img" src="img/page-loader-bw.gif" alt="" />
-            <div class="githublogin" ng-click="gitHubLogin()">
-              <img class="github-img" src="img/githublogin.png" alt="Sign in with Github" />
+            <img class="pageloader-img" src="img/page-loader-bw.gif" alt=""/>
+            <div class="loginbuttons">
+                <div class="githublogin" ng-click="gitHubLogin()">
+                    <img class="github-img" src="img/githublogin.png" alt="Sign in with Github"/>
+                </div>
+                <div class="googlelogin" ng-click="googleLogin()">
+                    <img class="google-img" src="img/googlelogin.png" alt="Sign in with Google"/>
+                </div>
             </div>
-            <div class="googlelogin" ng-click="googleLogin()">
-              <img class="google-img" src="img/googlelogin.png" alt="Sign in with Google" />
-            </div>
+
+          </div>
         </div>
 
         <!-- HEADER -->
@@ -37,7 +42,10 @@
             </div>
 
             <div class="coins">{{user.coins}}</div>
-            <img class="coins-img" src="img/coins.png" alt="coins"/>
+            <div class="coin" id="coin_count">
+
+            </div>
+            <!-- <img class="coins-img" src="img/coins.png" alt="coins"/> -->
 
             <!-- <div class="github" ng-click="gitHubLogin()"><img src="https://cdn2.iconfinder.com/data/icons/social-aquiocons/512/Aquicon-Github.png" alt="Sign in with Github" /></div> -->
         </header>
@@ -58,18 +66,19 @@
                 <div style="width: 380px"></div>
                 <li class="layer" data-depth="1"><img style="opacity: 0;" src="img/layer1.png"/></li>
                 <li class="layer" data-depth="0"><img src="img/cat_back.png"></li>
-                <li class="layer" data-depth="0.1"><img src="img/cat_eyes.png"></li>
-                <li class="layer" data-depth="0"><img src="img/cat_base.png"></li>
-                <li class="layer" id="eyelids" data-depth="0"><img src="img/cat_eyelids.png"></li>
-                <li class="layer" data-depth="0"><img src="img/cat_eyelashes.png"></li>
+                <li class="layer" data-depth="0.1"><img src="img/cat_eyes_white.png"></li>
+                <li class="layer" data-depth="0"><img src="img/cat_base_white.png"></li>
+                <li class="layer" id="eyelids" data-depth="0"><img src="img/cat_eyelids_white.png"></li>
+                <li class="layer" data-depth="0"><img src="img/cat_eyelashes_white.png"></li>
             </ul>
         </div>
 
         <!-- USERLOGINCONFIRM -->
 
         <div class="userloggedin">
-          <img class="profile-img" src="{{userData.profileImageURL}}" alt="That's you." />
-          <h3 class="username">Logged in as {{userData.displayName}}</h3>
+            <img class="profile-img" src="{{userData.profileImageURL}}" alt="That's you."/>
+            <h3 class="username">Logged in as
+                {{userData.displayName}}</h3>
         </div>
 
         <!-- UI-VIEW -->

@@ -13,6 +13,11 @@ angular.module('kittyApp')
 
           $('.userloggedin').hide();
 
+          setTimeout(function () {
+            $('.loginbuttons').fadeIn('slow');
+            $('.load-title').fadeIn('slow');
+          }, 1600);
+
         var fbRef = new Firebase(fb.url);
 
         var shopRef = fbRef.child("shop");
@@ -26,10 +31,14 @@ angular.module('kittyApp')
                     $rootScope.gitHubUid = authData.github.id;
                     $rootScope.userData = authData.github;
                     $(".loader").fadeOut("slow");
-                    // $rootScope.createUser($rootScope.gitHubUid);
 
                     $scope.user = $firebaseObject(new Firebase(fb.url + "user/" + $rootScope.gitHubUid));
                     $scope.$apply();
+                    if (!$scope.user) {
+                      $rootScope.createUser($rootScope.gitHubUid);
+                      $scope.user = $firebaseObject(new Firebase(fb.url + "user/" + $rootScope.gitHubUid));
+                      $scope.$apply();
+                    }
                     $rootScope.currentCoins = parseInt($scope.user.coins);
                     console.log($scope.user.coins);
 
