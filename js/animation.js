@@ -4,6 +4,8 @@ var catState = {};
 
 // $('.pageloader-img').hide();
 
+// $('.loadwrapper').hide();
+
 // $('.pageloader-img').slideDown(600);
 
 $('.kitty').on('click', function(){

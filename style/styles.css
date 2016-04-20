@@ -188,6 +188,8 @@ img {
 }
 
 .loadwrapper {
+  /*opacity: 0;*/
+  /*display: none;*/
   background: #333333;
   /*border: 1px solid #aeaeae;*/
   border-radius: 20px;
@@ -207,7 +209,18 @@ img {
   /*margin: 0 auto;*/
 }
 
+.loadingtext {
+  color: #fff;
+  display: inline-block;
+  position: fixed;
+  top: 320px;
+  margin: 90px;
+  z-index: 9999;
+  /*margin: 0 auto;*/
+}
+
 .pageloader-img {
+  /*opacity: 0;*/
   margin-top: 200px;
   width: 300px;
   height: 160px;

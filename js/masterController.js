@@ -21,10 +21,16 @@ angular.module('kittyApp')
         });
 
           $('.userloggedin').hide();
+          setTimeout(function () {
+            $('.loadingtext').fadeOut('slow', function() {
+
+            });
+          }, 1200);
+
 
           setTimeout(function () {
-            $('.loginbuttons').fadeIn('slow');
-            $('.load-title').fadeIn('slow');
+            $('.loginbuttons').fadeTo(600, 1, function(){});
+            $('.load-title').fadeTo(600, 1, function(){});
           }, 1600);
 
         var fbRef = new Firebase(fb.url);
