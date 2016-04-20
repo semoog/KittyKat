@@ -10,30 +10,39 @@
         <link rel="stylesheet" href="style/styles.css">
         <script src="https://apis.google.com/js/platform.js" async defer></script>
     </head>
-    <body>
+    <body ng-controller="masterController">
 
-        <div class="loader" ng-controller="masterController">
+      <!-- LOADER -->
+
+        <div class="loader">
             <!-- <ul id="loading">
                 <li ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]"></li>
             </ul> -->
             <h1 class="load-title">Ktty.</h1>
             <img class="pageloader-img" src="img/page-loader-bw.gif" alt="" />
-            <div class="login" ng-click="gitHubLogin()">
+            <div class="githublogin" ng-click="gitHubLogin()">
               <img class="github-img" src="img/githublogin.png" alt="Sign in with Github" />
+            </div>
+            <div class="googlelogin" ng-click="googleLogin()">
+              <img class="google-img" src="img/googlelogin.png" alt="Sign in with Google" />
             </div>
         </div>
 
-        <header class="header" ng-controller="masterController">
+        <!-- HEADER -->
+
+        <header class="header">
             <div class="nav">
                 <a class="shop-link" ui-sref="shop">Shop</a>
                 <a class="inv-link" ui-sref="inventory">Inventory</a>
             </div>
 
-            <div class="coins">{{user[0].coins}}</div>
+            <div class="coins">{{user.coins}}</div>
             <img class="coins-img" src="img/coins.png" alt="coins"/>
 
             <!-- <div class="github" ng-click="gitHubLogin()"><img src="https://cdn2.iconfinder.com/data/icons/social-aquiocons/512/Aquicon-Github.png" alt="Sign in with Github" /></div> -->
         </header>
+
+        <!-- STATS -->
 
         <div class="stats">
             <h1>Hunger</h1>
@@ -41,6 +50,8 @@
             <h1>Happiness</h1>
             <progress class="progress-bar" id="happiness" value="100" max="100"></progress>
         </div>
+
+        <!-- KITTY -->
 
         <div class="kitty clearfix">
             <ul id="scene">
@@ -52,6 +63,13 @@
                 <li class="layer" id="eyelids" data-depth="0"><img src="img/cat_eyelids.png"></li>
                 <li class="layer" data-depth="0"><img src="img/cat_eyelashes.png"></li>
             </ul>
+        </div>
+
+        <!-- USERLOGINCONFIRM -->
+
+        <div class="userloggedin">
+          <img class="profile-img" src="{{userData.profileImageURL}}" alt="That's you." />
+          <h3 class="username">Logged in as {{userData.displayName}}</h3>
         </div>
 
         <!-- UI-VIEW -->

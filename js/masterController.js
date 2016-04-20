@@ -1,16 +1,17 @@
 angular.module('kittyApp')
-    .controller('masterController', function($scope, $rootScope, $firebaseArray, fbService, fb) {
+    .controller('masterController', function($scope, $rootScope, $firebaseArray, $firebaseObject, fbService, fb) {
 
 
         //Gets all the users in the firebase service
         fbService.getAllUsers().then(function(response) {
-            $rootScope.user = response;
-            $rootScope.currentCoins = parseInt($rootScope.user[$rootScope.id].coins);
+            $rootScope.users = response;
         });
 
         fbService.getShop().then(function(response) {
             $rootScope.shop = response;
         });
+
+          $('.userloggedin').hide();
 
         var fbRef = new Firebase(fb.url);
 
@@ -22,9 +23,23 @@ angular.module('kittyApp')
                     console.log("Login Failed!", error);
                 } else {
                     console.log("Authenticated successfully with payload:", authData);
-                    $rootScope.gitHubUid = authData.auth.uid;
+                    $rootScope.gitHubUid = authData.github.id;
+                    $rootScope.userData = authData.github;
                     $(".loader").fadeOut("slow");
-                    $rootScope.createUser($rootScope.gitHubUid);
+                    // $rootScope.createUser($rootScope.gitHubUid);
+
+                    $scope.user = $firebaseObject(new Firebase(fb.url + "user/" + $rootScope.gitHubUid));
+                    $scope.$apply();
+                    $rootScope.currentCoins = parseInt($scope.user.coins);
+                    console.log($scope.user.coins);
+
+                    setTimeout(function () {
+                      $('.userloggedin').slideDown('slow');
+                    }, 200);
+
+                    setTimeout(function () {
+                      $('.userloggedin').slideUp('slow');
+                    }, 5000);
                 }
             });
         };
@@ -53,23 +68,20 @@ angular.module('kittyApp')
         };
 
         $rootScope.addCoins = function(numCoins) {
-            // if ($rootScope.user[$rootScope.id] && !$rootScope.currentCoins) {
-            $rootScope.currentCoins = parseInt($rootScope.user[$rootScope.id].coins);
-            // }
-            $rootScope.user[$rootScope.id].coins = $rootScope.currentCoins + numCoins; //test 3 way binding?wait
-            $rootScope.user.$save($rootScope.id);
+            $scope.user.coins = $rootScope.currentCoins + numCoins; //test 3 way binding?wait
+            $scope.user.$save();
+            $rootScope.currentCoins = parseInt($scope.user.coins);
         };
 
         $rootScope.removeCoins = function(numCoins) {
-            // if ($rootScope.user[$rootScope.id] && !$rootScope.currentCoins) {
-            $rootScope.currentCoins = parseInt($rootScope.user[$rootScope.id].coins);
-            // }
-
-            $rootScope.user[$rootScope.id].coins = $rootScope.currentCoins - numCoins; //test 3 way binding?wait
-            $rootScope.user.$save($rootScope.id);
+          $scope.user.coins = $rootScope.currentCoins - numCoins; //test 3 way binding?wait
+          $scope.user.$save();
+          $rootScope.currentCoins = parseInt($scope.user.coins);
         };
 
-
+        // setInterval(function(){
+        //   console.log($scope.user, "hit");
+        // },1000);
 
         //   var auth = $firebaseAuth(ref);
         // // login with Facebook

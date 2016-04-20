@@ -1,13 +1,13 @@
 body {
   font-family: 'Open Sans', sans-serif;
-  background: #252525;
-  /*background: #66CEFF;*/
+  /*background: #252525;*/
+  background: #66CEFF;
   text-align: center;
   margin-top: 100px;
 }
 
 .header {
-  background: #ffffff;
+  background: #333333;
   height: 50px;
   width: 100%;
   position: fixed;
@@ -33,7 +33,7 @@ margin: 0 120px;
   /*display: inline-block;*/
   text-decoration: none;
   margin-top: 10px;
-  color: grey;
+  color: white;
   font-size: 20px;
   font-weight: 300;
   padding-right: 60px;
@@ -163,13 +163,19 @@ img {
 /*COINS HEADER*/
 
 .coins {
-  margin-top: -30px;
+  margin-top: -23px;
+  right: 100px;
+  position: fixed;
+  color: white;
 }
 
 .coins-img{
-  margin-top: -10px;
-  height: 64px;
-  width: 64px;
+  margin-top: -35px;
+  position: fixed;
+  right: 45px;
+  display: inline-block;
+  height: 45px;
+  width: 45px;
 }
 
 .loader {
@@ -200,7 +206,7 @@ img {
   height: 160px;
 }
 
-.login  {
+.githublogin  {
   width: 50%;
   margin: 0 auto;
   margin-top: -10px;
@@ -209,4 +215,45 @@ img {
 
 .github-img  {
   width: 250px;
+}
+
+.googlelogin  {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 10px;
+  /*z-index: 9999;*/
+}
+
+.google-img  {
+  width: 250px;
+}
+
+.userloggedin  {
+  background: #333333;
+  height: 74px;
+  width: 300px;
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  z-index: 1;
+  box-shadow: 0 1px 5px grey;
+  border-radius: 0px 0px 20px 20px;
+}
+
+.profile-img  {
+  position: relative;
+  left: -112px;
+  top: 5px;
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  border-radius: 0px 0px 0px 20px;
+}
+
+.username  {
+  font-weight: 300;
+  color: white;
+  position: fixed;
+  top: 55px;
+  right: 50px;
 }
