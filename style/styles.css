@@ -12,36 +12,47 @@ body {
   height: 50px;
   width: 100%;
   position: fixed;
+  text-align: left;
   top: 0;
   left: 0;
   z-index: 1;
   box-shadow: 0 2px 1px #000;
 }
 
-.logotext  {
+.logotext {
   left: 0;
   margin-top: 5px;
 }
 
 .nav {
-display: flex;
-flex: auto;
-justify-content: left;
-margin: 0 120px;
+  display: inline-block;
+  /* margin: 0 120px; */
 }
 
-.nav a{
+.nav a {
   /*display: inline-block;*/
   text-decoration: none;
-  margin-top: 10px;
   color: white;
   font-size: 20px;
   font-weight: 300;
   padding-right: 60px;
   text-align: center;
+  line-height: 50px;
 }
 
-.stats  {
+.coins {
+  line-height: 50px;
+  float: right;
+  padding-right: 40px;
+  color: white;
+}
+
+#coin_count {
+  margin-left: 5px;
+  line-height: 50px;
+}
+
+.stats {
   color: #252525;
   background: #333333;
   width: 220px;
@@ -65,7 +76,7 @@ img {
   /*margin-bottom: -10px;*/
 }
 
-.progress-bar  {
+.progress-bar {
   margin-bottom: 10px;
 }
 
@@ -74,14 +85,13 @@ img {
   margin-top: -50px;
 }
 
-.ui-view  {
+.ui-view {
   position: fixed;
   left: 10px;
   top: 50px;
 }
 
 /*SHOP*/
-
 .shop {
   background: #fff;
   margin-top: 0px;
@@ -116,10 +126,12 @@ img {
   /*display: inline-block;*/
   background-color: #ccdfe5;
 }
+
 .insufficient-funds > img {
   -webkit-filter: grayscale(1);
   filter: grayscale(1);
 }
+
 .insufficient-funds > .price {
   color: #fe6e33;
 }
@@ -150,12 +162,6 @@ img {
   border: 2px solid #fdc905;
 }
 
-#coin_count  {
-  margin-top: -17px;
-  position: fixed;
-  right: 45px;
-}
-
 .item-text {
   font-family: "Open Sans";
   font-size: 13px;
@@ -164,28 +170,11 @@ img {
   text-align: center;
   bottom: 5px;
   width: 100%;
-  background-color: rgba(0,0,0,0.35);
+  background-color: rgba(0, 0, 0, 0.35);
   color: #F1F1F1;
 }
 
-/*COINS HEADER*/
-
-.coins {
-  margin-top: -23px;
-  right: 70px;
-  position: fixed;
-  color: white;
-}
-
-.coins-img{
-  margin-top: -35px;
-  position: fixed;
-  right: 45px;
-  display: inline-block;
-  height: 45px;
-  width: 45px;
-}
-
+/*LOADER*/
 .loader {
   height: 100%;
   width: 100%;
@@ -198,14 +187,14 @@ img {
   background: #252525;
 }
 
-.loadwrapper  {
-  /*background: #aeaeae;*/
+.loadwrapper {
+  background: #333333;
   /*border: 1px solid #aeaeae;*/
   border-radius: 20px;
   width: 300px;
   height: 500px;
   margin: 60px auto;
-  /*box-shadow: 0 2px 1px grey;*/
+  box-shadow: 0 2px 1px black;
 }
 
 .load-title {
@@ -224,33 +213,33 @@ img {
   height: 160px;
 }
 
-.githublogin  {
+.githublogin {
+  /*display: none;*/
   /*width: 50%;*/
   margin: 0 auto;
   margin-top: -10px;
   /*z-index: 9999;*/
 }
 
-.github-img  {
+.github-img {
   width: 250px;
   box-shadow: 0 2px 1px grey;
-
 }
 
-.googlelogin  {
+.googlelogin {
+  /*visibility: */
   /*width: 50%;*/
   margin: 0 auto;
   margin-top: 10px;
   /*z-index: 9999;*/
 }
 
-.google-img  {
+.google-img {
   width: 250px;
   box-shadow: 0 2px 1px grey;
-
 }
 
-.userloggedin  {
+.userloggedin {
   background: #333333;
   height: 74px;
   width: 300px;
@@ -258,24 +247,130 @@ img {
   top: 50px;
   right: 20px;
   z-index: 1;
-  /*box-shadow: 0 1px 5px grey;*/
+  box-shadow: 0 2px 1px black;
   border-radius: 0px 0px 0px 20px;
+  text-align: left;
 }
 
-.profile-img  {
-  position: relative;
-  left: -112px;
-  top: 5px;
+.profile-img {
+  margin: 5px 10px 5px 5px;
   display: inline-block;
+  float: left;
   width: 64px;
   height: 64px;
   border-radius: 0px 0px 0px 20px;
 }
 
-.username  {
+.profile-img-mini {
+  margin: 5px 85px 5px 5px;
+  display: inline-block;
+  float: left;
+  width: 32px;
+  height: 32px;
+  border-radius: 0px 0px 20px 0px;
+}
+
+.username {
   font-weight: 300;
   color: white;
-  position: fixed;
-  top: 55px;
-  right: 50px;
+  padding-right: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.userloggedin > span {
+  color: gray;
+  padding-bottom: 0;
+  margin: 0;
+}
+
+/*HEARTS*/
+@-moz-keyframes heartbeat {
+  0% {
+    opacity: 1;
+    -moz-transform: rotate(45deg) scale(0.8) translate(200px, 200px);
+    transform: rotate(45deg) scale(0.8) translate(200px, 200px);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes heartbeat {
+  0% {
+    opacity: 1;
+    -webkit-transform: rotate(45deg) scale(0.8) translate(200px, 200px);
+    transform: rotate(45deg) scale(0.8) translate(200px, 200px);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes heartbeat {
+  0% {
+    opacity: 1;
+    -moz-transform: rotate(45deg) scale(0.8) translate(200px, 200px);
+    -ms-transform: rotate(45deg) scale(0.8) translate(200px, 200px);
+    -webkit-transform: rotate(45deg) scale(0.8) translate(200px, 200px);
+    transform: rotate(45deg) scale(0.8) translate(200px, 200px);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.heart-container {
+  position: relative;
+  top: -150px;
+  left: 0px;
+}
+
+.heartbeat {
+  -moz-animation: heartbeat 1300ms ease 0s infinite normal;
+  -webkit-animation: heartbeat 1300ms ease 0s infinite normal;
+  animation: heartbeat 1300ms ease 0s infinite normal;
+  display: inline-block;
+  position: absolute;
+  overflow: hidden;
+  width: 36px;
+  height: 36px;
+  -moz-transform: rotate(45deg) scale(1) translate(0px, 0px);
+  -ms-transform: rotate(45deg) scale(1) translate(0px, 0px);
+  -webkit-transform: rotate(45deg) scale(1) translate(0px, 0px);
+  transform: rotate(45deg) scale(1) translate(0px, 0px);
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+
+.heartbeat:after, .heartbeat:before {
+  position: absolute;
+  content: "";
+  background: #e87;
+}
+
+.heartbeat:before {
+  -moz-border-radius-topleft: 12px;
+  -webkit-border-top-left-radius: 12px;
+  border-top-left-radius: 12px;
+  -moz-border-radius-bottomleft: 12px;
+  -webkit-border-bottom-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  top: 12px;
+  left: 0;
+  width: 36px;
+  height: 24px;
+}
+
+.heartbeat:after {
+  -moz-border-radius-topleft: 12px;
+  -webkit-border-top-left-radius: 12px;
+  border-top-left-radius: 12px;
+  -moz-border-radius-topright: 12px;
+  -webkit-border-top-right-radius: 12px;
+  border-top-right-radius: 12px;
+  top: 0;
+  left: 12px;
+  width: 24px;
+  height: 12px;
 }

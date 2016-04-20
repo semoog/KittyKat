@@ -20,7 +20,7 @@
             </ul> -->
             <div class="loadwrapper">
             <h1 class="load-title">Ktty.</h1>
-            <img class="pageloader-img" src="img/page-loader-bw.gif" alt=""/>
+            <img class="pageloader-img" src="img/page-loader-bw2.gif" alt=""/>
             <div class="loginbuttons">
                 <div class="githublogin" ng-click="gitHubLogin()">
                     <img class="github-img" src="img/githublogin.png" alt="Sign in with Github"/>
@@ -36,13 +36,18 @@
         <!-- HEADER -->
 
         <header class="header">
+
+          <div class="user-mini">
+              <img class="profile-img-mini" src="{{userData.profileImageURL}}" alt="That's you."/>
+          </div>
+
             <div class="nav">
-                <a class="shop-link" ui-sref="shop">Shop</a>
-                <a class="inv-link" ui-sref="inventory">Inventory</a>
+                <a class="shop-link" ng-click="goToRouteAndOpenModal('shop')">Shop</a>
+                <a class="inv-link" ng-click="goToRouteAndOpenModal('inventory')">Inventory</a>
             </div>
 
-            <div class="coins">{{user.coins}}</div>
-            <div class="coin" id="coin_count">
+            <div class="coins">{{user.coins}}<div class="coin" id="coin_count"></div>
+
 
             </div>
             <!-- <img class="coins-img" src="img/coins.png" alt="coins"/> -->
@@ -61,6 +66,8 @@
 
         <!-- KITTY -->
 
+        <span class="heart-container"></span>
+
         <div class="kitty clearfix">
             <ul id="scene">
                 <div style="width: 380px"></div>
@@ -77,9 +84,11 @@
 
         <div class="userloggedin">
             <img class="profile-img" src="{{userData.profileImageURL}}" alt="That's you."/>
-            <h3 class="username">Logged in as
-                {{userData.displayName}}</h3>
+            <span>Logged in as</span>
+            <h3 class="username">{{userData.displayName}}</h3>
         </div>
+
+
 
         <!-- UI-VIEW -->
 

@@ -1,5 +1,14 @@
 angular.module('kittyApp')
-    .controller('masterController', function($scope, $rootScope, $firebaseArray, $firebaseObject, fbService, fb) {
+    .controller('masterController', function($scope, $state, $rootScope, $firebaseArray, $firebaseObject, fbService, fb) {
+
+        /* */
+        $scope.goToRouteAndOpenModal = function(route) {
+          $state.go(route).then(value => {
+            $('.ui-view').toggle("slide", {
+                direction: "up"
+            }, 300);
+          });
+        };
 
 
         //Gets all the users in the firebase service
@@ -30,17 +39,20 @@ angular.module('kittyApp')
                     console.log("Authenticated successfully with payload:", authData);
                     $rootScope.gitHubUid = authData.github.id;
                     $rootScope.userData = authData.github;
-                    $(".loader").fadeOut("slow");
 
                     $scope.user = $firebaseObject(new Firebase(fb.url + "user/" + $rootScope.gitHubUid));
                     $scope.$apply();
-                    if (!$scope.user) {
+
+                    if (!$scope.user.coins) {
                       $rootScope.createUser($rootScope.gitHubUid);
                       $scope.user = $firebaseObject(new Firebase(fb.url + "user/" + $rootScope.gitHubUid));
                       $scope.$apply();
                     }
+
                     $rootScope.currentCoins = parseInt($scope.user.coins);
-                    console.log($scope.user.coins);
+                    console.log($scope.user);
+
+                    $(".loader").fadeOut("slow");
 
                     setTimeout(function () {
                       $('.userloggedin').slideDown('slow');

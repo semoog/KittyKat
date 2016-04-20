@@ -6,6 +6,19 @@ var catState = {};
 
 // $('.pageloader-img').slideDown(600);
 
+$('.kitty').on('click', function(){
+    // Init
+    var rand = Math.floor((Math.random()*100)+1);
+    var offsetX = Math.floor((Math.random() - .5)*60);
+    // Create Particle
+    var heart = $('<span class="heartbeat part-' + rand + '"></span>').css({left: offsetX + 'px'});
+    $('.heart-container').append(heart);
+    // Remove Particle
+    setTimeout(function(){
+        $('.part-'+rand).remove();
+    }, 1000);
+});
+
 $('.github-img').hover(function() {
   $('.github-img').css({
     'box-shadow': 'none',
@@ -65,9 +78,9 @@ $('.shop-link').click(function() {
     //   return;
     // }
     // else{
-    $('.ui-view').toggle("slide", {
-        direction: "up"
-    }, 300);
+    // $('.ui-view').toggle("slide", {
+    //     direction: "up"
+    // }, 300);
     // view = !view;
     // }
 });
@@ -77,9 +90,9 @@ $('.inv-link').click(function() {
     //   return;
     // }
     // else{
-    $('.ui-view').toggle("slide", {
-        direction: "up"
-    }, 300);
+    // $('.ui-view').toggle("slide", {
+    //     direction: "up"
+    // }, 300);
     // view = !view;
     // }
 });
