@@ -26,7 +26,7 @@ body {
 
 .nav {
   display: inline-block;
-  /* margin: 0 120px; */
+   margin: 0 120px;
 }
 
 .nav a {
@@ -43,7 +43,7 @@ body {
 .coins {
   line-height: 50px;
   float: right;
-  padding-right: 40px;
+  padding-right: 20px;
   color: white;
 }
 
@@ -60,7 +60,7 @@ body {
   box-shadow: 0 2px 1px #000;
   display: inline-block;
   position: absolute;
-  margin: 430px -110px;
+  margin: 530px -110px;
 }
 
 img {
@@ -82,7 +82,7 @@ img {
 
 #scene {
   display: inline-block;
-  margin-top: -50px;
+  margin-top: 80px;
 }
 
 .ui-view {
@@ -96,21 +96,21 @@ img {
   background: #fff;
   margin-top: 0px;
   margin-left: 50px;
-  width: 320px;
-  height: 320px;
+  width: 1320px;
+  height: 720px;
   border-radius: 0px 0px 20px 20px;
   /*box-shadow: 0 1px 5px #7b7a7b;*/
   /*overflow-y: scroll;*/
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
   overflow: hidden;
 }
 
 .item-box {
-  width: 125px;
-  height: 125px;
-  margin: 10px;
+  width: 250px;
+  height: 250px;
+  margin: 37px;
   /*display: inline-block;*/
   /*text-align: left !important;*/
   border: 3px solid #7b7a7b;
@@ -194,17 +194,18 @@ img {
   /*border: 1px solid #aeaeae;*/
   border-radius: 20px;
   width: 300px;
-  height: 500px;
-  margin: 60px auto;
+  height: 400px;
+  margin: 160px auto;
   box-shadow: 0 2px 1px black;
 }
 
 .load-title {
+  opacity: 0;
   color: #fff;
   display: inline-block;
   position: fixed;
-  margin-top: 150px;
-  margin: 115px;
+  margin-top: 40px;
+  margin-left: 115px;
   z-index: 9999;
   /*margin: 0 auto;*/
 }
@@ -213,15 +214,15 @@ img {
   color: #fff;
   display: inline-block;
   position: fixed;
-  top: 320px;
-  margin: 90px;
+  top: 340px;
+  margin: 87px;
   z-index: 9999;
   /*margin: 0 auto;*/
 }
 
 .pageloader-img {
-  /*opacity: 0;*/
-  margin-top: 200px;
+  opacity: 0;
+  margin-top: 100px;
   width: 300px;
   height: 160px;
 }
@@ -275,12 +276,12 @@ img {
 }
 
 .profile-img-mini {
-  margin: 5px 85px 5px 5px;
+  margin: 10px 40px 5px 5px;
   display: inline-block;
-  float: left;
+  float: right;
   width: 32px;
   height: 32px;
-  border-radius: 0px 0px 20px 0px;
+  border-radius: 100%;
 }
 
 .username {
@@ -386,4 +387,8 @@ img {
   left: 12px;
   width: 24px;
   height: 12px;
+}
+
+.selected {
+  border: 1px solid lime;
 }

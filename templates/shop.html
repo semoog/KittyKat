@@ -1,6 +1,6 @@
 <div class="shop">
   <div class="items" ng-repeat="item in shop">
-    <div class="item-box" ng-class="{'insufficient-funds': item.price > currentCoins}" ng-click="buyItem(currentCoins)">
+    <div class="item-box" ng-class="{'insufficient-funds': item.price > currentCoins}" ng-click="buyItem(item)">
       <img ng-src="{{item.img}}" />
       <div class="price"><div class="coin"></div>{{item.price}}</div>
       <div class="item-text">{{item.name}}</div>

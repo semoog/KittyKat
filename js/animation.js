@@ -11,7 +11,7 @@ var catState = {};
 $('.kitty').on('click', function(){
     // Init
     var rand = Math.floor((Math.random()*100)+1);
-    var offsetX = Math.floor((Math.random() - .5)*60);
+    var offsetX = Math.floor((Math.random() - 0.5)*60);
     // Create Particle
     var heart = $('<span class="heartbeat part-' + rand + '"></span>').css({left: offsetX + 'px'});
     $('.heart-container').append(heart);

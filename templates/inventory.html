@@ -1,3 +1,9 @@
 <div class="shop">
-
+  <div class="items" ng-repeat="item in inventory">
+    <div class="item-box" ng-class="{'selected': $index == selectedIndex}" ng-click="selectItem($index)">
+      <img ng-src="{{item.img}}" />
+      <!-- <div class="price"><div class="coin"></div>{{item.price}}</div> -->
+      <div class="item-text">{{item.name}}</div>
+    </div>
+  </div>
 </div>

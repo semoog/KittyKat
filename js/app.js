@@ -60,7 +60,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('inventory', {
             url: '/inventory',
             templateUrl: 'templates/inventory.html',
-            // controller: 'inventoryController'
+            controller: 'inventoryController'
         });
 
 

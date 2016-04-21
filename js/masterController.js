@@ -1,5 +1,5 @@
 angular.module('kittyApp')
-    .controller('masterController', function($scope, $state, $rootScope, $firebaseArray, $firebaseObject, fbService, fb) {
+    .controller('masterController', function($scope, $state, $rootScope, $firebaseArray, $firebaseObject, fbService, fb, inventoryService) {
 
         /* */
         $scope.goToRouteAndOpenModal = function(route) {
@@ -16,16 +16,17 @@ angular.module('kittyApp')
             $rootScope.users = response;
         });
 
-        fbService.getShop().then(function(response) {
-            $rootScope.shop = response;
-        });
-
           $('.userloggedin').hide();
+
+          setTimeout(function () {
+            $('.pageloader-img').fadeTo(600, 1, function(){});
+          }, 200);
+
           setTimeout(function () {
             $('.loadingtext').fadeOut('slow', function() {
 
             });
-          }, 1200);
+          }, 1000);
 
 
           setTimeout(function () {
@@ -46,17 +47,19 @@ angular.module('kittyApp')
                     $rootScope.gitHubUid = authData.github.id;
                     $rootScope.userData = authData.github;
 
-                    $scope.user = $firebaseObject(new Firebase(fb.url + "user/" + $rootScope.gitHubUid));
+                    $rootScope.user = $firebaseObject(new Firebase(fb.url + "user/" + $rootScope.gitHubUid));
                     $scope.$apply();
 
-                    if (!$scope.user.coins) {
+                    if (!$rootScope.user.coins) {
                       $rootScope.createUser($rootScope.gitHubUid);
-                      $scope.user = $firebaseObject(new Firebase(fb.url + "user/" + $rootScope.gitHubUid));
+                      $rootScope.user = $firebaseObject(new Firebase(fb.url + "user/" + $rootScope.gitHubUid));
                       $scope.$apply();
                     }
 
-                    $rootScope.currentCoins = parseInt($scope.user.coins);
-                    console.log($scope.user);
+                    $rootScope.currentCoins = parseInt($rootScope.user.coins);
+                    console.log($rootScope.user);
+
+                    inventoryService.setData();
 
                     $(".loader").fadeOut("slow");
 
@@ -78,7 +81,13 @@ angular.module('kittyApp')
 
             fbRef.child("user").child(uid).set({
                 coins: 0,
-                inventory: ['null'],
+                inventory: [{
+                  name: 'Petting Hand',
+                  price: 9999,
+                  type: 'toy',
+                  img: 'http://www.dam.de/sites/default/files/hand-god.png',
+                  increase: 10
+                }],
                 uid: uid
             });
         };
@@ -95,15 +104,15 @@ angular.module('kittyApp')
         };
 
         $rootScope.addCoins = function(numCoins) {
-            $scope.user.coins = $rootScope.currentCoins + numCoins; //test 3 way binding?wait
-            $scope.user.$save();
+            $rootScope.user.coins = $rootScope.currentCoins + numCoins; //test 3 way binding?wait
+            $rootScope.user.$save();
             $rootScope.currentCoins = parseInt($scope.user.coins);
         };
 
         $rootScope.removeCoins = function(numCoins) {
-          $scope.user.coins = $rootScope.currentCoins - numCoins; //test 3 way binding?wait
-          $scope.user.$save();
-          $rootScope.currentCoins = parseInt($scope.user.coins);
+          $rootScope.user.coins = $rootScope.currentCoins - numCoins; //test 3 way binding?wait
+          $rootScope.user.$save();
+          $rootScope.currentCoins = parseInt($rootScope.user.coins);
         };
 
         // setInterval(function(){
