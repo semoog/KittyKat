@@ -61,8 +61,20 @@
         <!-- SELECTED ITEM -->
 
         <div class="selecteditembox">
-          <!-- <img src="{{inventory[selectedIndex].img}}" alt="" /> -->
-          <img src="http://placehold.it/350x150">
+          <img ng-src="{{selectedItem.img}}" alt="" />
+          <!-- <img src="http://placehold.it/350x150"> -->
+        </div>
+
+        <!-- YOU BOUGHT SOME SHIT -->
+
+        <div class="shop-modal-success">
+          <h2>You bought something.</h2>
+        </div>
+
+        <!-- YOU DID NOT BUY SOME SHIT? -->
+
+        <div class="shop-modal-failure">
+          <h2>Not enough coins!</h2>
         </div>
 
         <!-- STATS -->

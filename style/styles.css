@@ -211,6 +211,7 @@ img {
 }
 
 .loadingtext {
+  opacity: 0;
   color: #fff;
   display: inline-block;
   position: fixed;
@@ -407,4 +408,36 @@ img {
 .selecteditembox img{
   margin-top: 7px;
   border-radius: 20px;
+}
+
+.shop-modal-success {
+  background: #000;
+  position: absolute;
+  opacity: 0.5;
+  margin: 0 auto;
+  color: #3B99FC;
+  left: 570px;
+  width: 300px;
+  height: 64px;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.shop-modal-success h2 {
+  margin-top: 15px;
+}
+
+.shop-modal-failure {
+  background: #000;
+  position: absolute;
+  opacity: 0.5;
+  margin: 0 auto;
+  color: #3B99FC;
+  left: 570px;
+  width: 300px;
+  height: 64px;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.shop-modal-failure h2 {
+  margin-top: 15px;
 }

@@ -13,7 +13,15 @@ angular.module('kittyApp')
           });
         };
 
-        // $scope.selectedIndex = inventoryService.selectedIndex;
+
+        //call back function
+        var updateSelectedItem = function(){
+          //sets the selected item to the inventory service selected item
+          $scope.selectedItem = inventoryService.getSelectedItem();
+        };
+
+        //Sends function off to be run at a later time.
+        inventoryService.registerObserverCallback(updateSelectedItem);
 
 
         //Gets all the users in the firebase service
@@ -25,6 +33,7 @@ angular.module('kittyApp')
 
           setTimeout(function () {
             $('.pageloader-img').fadeTo(600, 1, function(){});
+            $('.loadingtext').fadeTo(600, 1, function(){});
           }, 200);
 
           setTimeout(function () {
@@ -65,6 +74,8 @@ angular.module('kittyApp')
                     console.log($rootScope.user);
 
                     inventoryService.setData();
+
+                    $scope.selectedItem = inventoryService.getSelectedItem();
 
                     $(".loader").fadeOut("slow");
 

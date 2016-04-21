@@ -7,9 +7,17 @@ angular.module('kittyApp')
 
         $scope.buyItem = function(item) {
             if (item.price > $rootScope.user.coins) {
-                //    doNothing
+                $('.shop-modal-failure').fadeTo('slow', 1, function(){});
+
+                setTimeout(function () {
+                  $('.shop-modal-failure').fadeOut('slow');
+                }, 1200);
             } else {
-                /// buy the item
+                $('.shop-modal-success').fadeTo('slow', 1, function(){});
+
+                setTimeout(function () {
+                  $('.shop-modal-success').fadeOut('slow');
+                }, 1200);
                 $rootScope.user.inventory.push(item);
                 $rootScope.user.coins = $rootScope.currentCoins - item.price;
                 $rootScope.user.$save();

@@ -6,6 +6,9 @@ var catState = {};
 
 // $('.loadwrapper').hide();
 
+$('.shop-modal-success').hide();
+$('.shop-modal-failure').hide();
+
 // $('.pageloader-img').slideDown(600);
 
 $('.kitty').on('click', function(){
