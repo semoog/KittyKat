@@ -14,6 +14,8 @@ angular.module('kittyApp')
         };
 
 
+
+
         //call back function
         var updateSelectedItem = function(){
           //sets the selected item to the inventory service selected item
@@ -79,6 +81,34 @@ angular.module('kittyApp')
 
                     $(".loader").fadeOut("slow");
 
+
+                    var hunger = document.getElementById("hunger");
+                    var happiness = document.getElementById("happiness");
+
+
+                    $('.kitty').click(function(event) {
+                      if ($scope.selectedItem.type === "food") {
+                        hunger.value += $scope.selectedItem.increase;
+                        $('.feed').fadeTo('fast', 1, function(){});
+
+                        setTimeout(function () {
+                          $('.feed').fadeOut('fast');
+                        }, 500);
+                        $scope.addCoins($scope.selectedItem.increase);
+                      }
+
+                      if ($scope.selectedItem.type === "toy") {
+                        happiness.value += $scope.selectedItem.increase;
+                        $('.feed').fadeTo('fast', 1, function(){});
+
+                        setTimeout(function () {
+                          $('.feed').fadeOut('fast');
+                        }, 500);
+                        $scope.addCoins($scope.selectedItem.increase);
+                      }
+
+                    });
+
                     setTimeout(function () {
                       $('.userloggedin').slideDown('slow');
                     }, 200);
@@ -101,6 +131,7 @@ angular.module('kittyApp')
                   name: 'Petting Hand',
                   price: 9999,
                   type: 'toy',
+                  altimg: 'http://image005.flaticon.com/1/svg/119/119960.svg',
                   img: 'http://image005.flaticon.com/1/svg/119/119960.svg',
                   increase: 10
                 }],
