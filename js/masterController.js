@@ -4,9 +4,12 @@ angular.module('kittyApp')
         /* */
         $scope.goToRouteAndOpenModal = function(route) {
           $state.go(route).then(value => {
-            $('.ui-view').toggle("slide", {
-                direction: "up"
-            }, 300);
+            // $('.ui-view').toggle("slide", {
+            //     direction: "up"
+            // }, 300);
+            $('.ui-view').fadeToggle('fast', function() {
+
+            });
           });
         };
 

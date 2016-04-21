@@ -94,17 +94,17 @@ img {
 /*SHOP*/
 .shop {
   background: #fff;
-  margin-top: 0px;
+  margin-top: 160px;
   margin-left: 50px;
   width: 1320px;
-  height: 720px;
-  border-radius: 0px 0px 20px 20px;
-  /*box-shadow: 0 1px 5px #7b7a7b;*/
+  height: 330px;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: 0 2px 1px #000;
   /*overflow-y: scroll;*/
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-start;
-  overflow: hidden;
+  overflow-x: scroll;;
 }
 
 .item-box {
@@ -334,8 +334,8 @@ img {
 }
 .heart-container {
   position: relative;
-  top: -150px;
-  left: 0px;
+  top: -120px;
+  left: -20px;
 }
 
 .heartbeat {
@@ -347,10 +347,10 @@ img {
   overflow: hidden;
   width: 36px;
   height: 36px;
-  -moz-transform: rotate(45deg) scale(1) translate(0px, 0px);
-  -ms-transform: rotate(45deg) scale(1) translate(0px, 0px);
-  -webkit-transform: rotate(45deg) scale(1) translate(0px, 0px);
-  transform: rotate(45deg) scale(1) translate(0px, 0px);
+  -moz-transform: rotate(45deg) scale(1.5) translate(0px, 0px);
+  -ms-transform: rotate(45deg) scale(1.5) translate(0px, 0px);
+  -webkit-transform: rotate(45deg) scale(1.5) translate(0px, 0px);
+  transform: rotate(45deg) scale(1.5) translate(0px, 0px);
   -moz-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   -webkit-transform-origin: 50% 50%;
@@ -390,5 +390,5 @@ img {
 }
 
 .selected {
-  border: 1px solid lime;
+  border: 4px dotted #3A96F7;
 }
