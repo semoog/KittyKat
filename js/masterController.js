@@ -13,6 +13,8 @@ angular.module('kittyApp')
           });
         };
 
+        // $scope.selectedIndex = inventoryService.selectedIndex;
+
 
         //Gets all the users in the firebase service
         fbService.getAllUsers().then(function(response) {
@@ -53,7 +55,7 @@ angular.module('kittyApp')
                     $rootScope.user = $firebaseObject(new Firebase(fb.url + "user/" + $rootScope.gitHubUid));
                     $scope.$apply();
 
-                    if (!$rootScope.user.coins) {
+                    if ($rootScope.user.coins === undefined) {
                       $rootScope.createUser($rootScope.gitHubUid);
                       $rootScope.user = $firebaseObject(new Firebase(fb.url + "user/" + $rootScope.gitHubUid));
                       $scope.$apply();
@@ -88,7 +90,7 @@ angular.module('kittyApp')
                   name: 'Petting Hand',
                   price: 9999,
                   type: 'toy',
-                  img: 'http://www.dam.de/sites/default/files/hand-god.png',
+                  img: 'http://image005.flaticon.com/1/svg/119/119960.svg',
                   increase: 10
                 }],
                 uid: uid

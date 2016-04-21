@@ -390,5 +390,21 @@ img {
 }
 
 .selected {
-  border: 4px dotted #3A96F7;
+  border: 3px dotted #3A96F7;
+}
+
+.selecteditembox {
+  background: #fff;
+  position: fixed;
+  right: 30px;
+  top: 90px;
+  width: 64px;
+  height: 64px;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: 0 2px 1px #000;
+}
+
+.selecteditembox img{
+  margin-top: 7px;
+  border-radius: 20px;
 }
