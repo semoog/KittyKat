@@ -17,6 +17,11 @@ angular.module('kittyApp')
             this.setDataRan = true;
           };
 
+          this.updateInventory = function(inventory) {
+            this.inventory = inventory;
+            notifyObservers();
+          };
+
           this.setIndex = function(index) {
             this.selectedIndex = index;
             //Call ya boii and let him know you changed.

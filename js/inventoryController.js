@@ -13,4 +13,8 @@ angular.module('kittyApp')
         $scope.inventory = inventoryService.inventory;
       };
 
+      //Sends function off to be run at a later time.
+      inventoryService.registerObserverCallback($scope.getInventory);
+
+
     });

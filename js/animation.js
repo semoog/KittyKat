@@ -2,6 +2,8 @@ var randomWidth = 10000;
 var timer = setInterval(toggleEyelids, 1000);
 var catState = {};
 
+var hunger = document.getElementById("hunger");
+
 // $('.pageloader-img').hide();
 
 // $('.loadwrapper').hide();
@@ -72,6 +74,10 @@ function toggleEyelids() {
     blink();
     clearInterval(timer);
     timer = setInterval(toggleEyelids, parseInt(Math.random() * randomWidth + 3000));
+
+    if (hunger.value <= 0) {
+      $('#eyelids2').show();
+    }
 }
 
 $('.ui-view').hide();

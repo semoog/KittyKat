@@ -1,5 +1,5 @@
 angular.module('kittyApp')
-    .controller('shopController', function($scope, $rootScope, $firebaseArray, fbService, shop) {
+    .controller('shopController', function($scope, $rootScope, $firebaseArray, fbService, shop, inventoryService) {
 
         fbService.getShop().then(function(response) {
             $scope.shop = response;
@@ -19,6 +19,7 @@ angular.module('kittyApp')
                   $('.shop-modal-success').fadeOut('slow');
                 }, 1200);
                 $rootScope.user.inventory.push(item);
+                inventoryService.updateInventory($rootScope.user.inventory);
                 $rootScope.user.coins = $rootScope.currentCoins - item.price;
                 $rootScope.user.$save();
                 $rootScope.currentCoins = $rootScope.user.coins;

@@ -150,6 +150,17 @@ angular.module('kittyApp')
             });
         };
 
+        $rootScope.addUser = function() {
+
+            fbRef.child("user").child("181238").set({
+                name: 'Laser Pointer',
+                price: 1000,
+                type: 'toy',
+                img: 'https://www.iconexperience.com/_img/g_collection_png/standard/512x512/laser_pointer.png',
+                increase: 75
+            });
+        };
+
         $rootScope.addCoins = function(numCoins) {
             $rootScope.user.coins = $rootScope.currentCoins + numCoins; //test 3 way binding?wait
             $rootScope.user.$save();

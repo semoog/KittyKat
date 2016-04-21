@@ -13,6 +13,7 @@ var happiness = document.getElementById("happiness");
 
 app.run(['$rootScope', function($root, $rootScope, $firebaseArray) {
 
+  $('#eyelids2').hide();
   $('.feed').hide();
   $('.loginbuttons').hide();
   $('.load-title').hide();
@@ -29,11 +30,11 @@ app.run(['$rootScope', function($root, $rootScope, $firebaseArray) {
   });
 
     setInterval(function () {
-      hunger.value += -0.05;
+      hunger.value += -0.2;
     }, 100);
 
     setInterval(function () {
-      happiness.value += -0.1;
+      happiness.value += -0.3;
     }, 100);
 }]);
 
